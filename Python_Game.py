@@ -69,34 +69,34 @@ for i in range(5):
     sissekanded.append(sissekanne)
 
 kontrolli_nupp = Button(root, text="Kontrollima",
-                        bg="#7a8994",
-                       fg="#faab09",
-                      font="Britannic_Bold 16",
-                     width=16,
-                    command=kontrolli_sõna)
+                              bg="#7a8994",
+                              fg="#faab09",
+                              font="Britannic_Bold 16",
+                              width=16,
+                              command=kontrolli_sõna)
 kontrolli_nupp.pack(pady=10)
 
 pealkiri1 = Label(root, text="Lisage uus sõna",
-                  bg="#7a8994",
-                 fg="#faf5f5",
-                 font="Britannic_Bold 16",
-                justify=CENTER,
-               height=2, width=60)
+                         bg="#7a8994",
+                         fg="#faf5f5",
+                         font="Britannic_Bold 16",
+                         justify=CENTER,
+                          height=2, width=60)
 pealkiri1.pack()
 
 texbox6 = Entry(root, bg="#ffcc00",
-                fg="#033e5c",
-               font="Britannic_Bold 16",
-              width=7,
-             show="")
+                      fg="#033e5c",
+                      font="Britannic_Bold 16",
+                      width=7,
+                      show="")
 texbox6.pack()
 
 lisamise_nupp = Button(root,
                        text="Lisa sõna",
-                      bg="#7a8994",
-                     fg="#faab09",
-                    font="Britannic_Bold 16",
-                   width=16, command=lisa_sõna)
+                       bg="#7a8994",
+                       fg="#faab09",
+                       font="Britannic_Bold 16",
+                       width=16, command=lisa_sõna)
 lisamise_nupp.pack(pady=10)
 
 püüde = IntVar()  
