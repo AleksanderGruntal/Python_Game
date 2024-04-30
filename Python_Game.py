@@ -1,4 +1,4 @@
-﻿from tkinter import *
+from tkinter import *
 from tkinter import messagebox as mb
 import random
 
@@ -24,8 +24,8 @@ def kontrolli_sõna():
         mb.showinfo("Tulemus", f"Palju õnne! Arvasite õigesti sõna: {arvatud_sõna.capitalize()}!")
     else:
         mb.showinfo("Tulemus", f"Kahjuks sõna {arvatud_sõna.capitalize()} ei ole ära arvatud. Proovige uuesti!")
-        püüde_arv.set(püüde_arv.get() - 1)  # Уменьшаем количество оставшихся попыток
-        if püüde_arv.get() == 0:
+        püüde.set(püüde.get() - 1)  # Уменьшаем количество оставшихся попыток
+        if püüde.get() == 0:
             mb.showinfo("Tulemus", f"Teil on otsas katsed. Õige sõna oli: {valitud_sõna.capitalize()}!")
             root.quit()
     
@@ -98,7 +98,7 @@ lisamise_nupp = Button(root,
                    width=16, command=lisa_sõna)
 lisamise_nupp.pack(pady=10)
 
-püüde_arv = IntVar()  
-püüde_arv.set(3) 
+püüde = IntVar()  
+püüde.set(3) 
 
 root.mainloop()
