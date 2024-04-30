@@ -27,7 +27,7 @@ def kontrolli_sõna(): #Kontrollib, kas sõna on õigesti kirjutatud
         püüde.set(püüde.get() - 1)  #Vähendab katsete arvu
         if püüde.get() == 0:
             mb.showinfo("Tulemus", f"Teil on otsas katsed. Õige sõna oli: {valitud_sõna.capitalize()}!")
-            root.quit()
+            aken.quit()
     
     for i, täht in enumerate(valitud_sõna): #Värvid
         if i < 5:
@@ -48,9 +48,9 @@ def lisa_sõna(): #Sõna lisamine tekstifaili
         mb.showwarning("Viga", "Sõnaväli on tühi!")
 
         #Visuaalne osa
-root = Tk()
-root.geometry("400x300")
-root.title("Wordle")
+aken = Tk()
+aken.geometry("400x300")
+aken.title("Wordle")
 
 sõnade_nimekiri = []
 with open("sõnad.txt", "r") as file:
@@ -58,17 +58,24 @@ with open("sõnad.txt", "r") as file:
         sõnade_nimekiri.append(rida.strip().lower())
 valitud_sõna = vali_sõna()
 
-juhise_märgis = Label(root, text="Sisestage 5-täheline sõna:", font=("Helvetica", 12))
+juhise_märgis=Label(aken,
+               text="Sisestage 5-täheline sõna",
+               bg="#d6daf1",
+               fg="#2a5fac", #-
+               cursor="star",
+               font="Britannic_Bold 16",
+               justify=CENTER,
+               height=3,width=26)
 juhise_märgis.pack()
 
 sissekanded = []
 
 for i in range(5):
-    sissekanne = Entry(root, font=("Helvetica", 12), width=3)
+    sissekanne = Entry(aken, font=("Helvetica", 12), width=3)
     sissekanne.pack(side=LEFT, padx=5)
     sissekanded.append(sissekanne)
 
-kontrolli_nupp = Button(root, text="Kontrollima",
+kontrolli_nupp = Button(aken, text="Kontrollima",
                               bg="#7a8994",
                               fg="#faab09",
                               font="Britannic_Bold 16",
@@ -76,22 +83,23 @@ kontrolli_nupp = Button(root, text="Kontrollima",
                               command=kontrolli_sõna)
 kontrolli_nupp.pack(pady=10)
 
-pealkiri1 = Label(root, text="Lisage uus sõna",
+pealkiri1 = Label(aken, text="Lisage uus sõna",
                          bg="#7a8994",
                          fg="#faf5f5",
                          font="Britannic_Bold 16",
                          justify=CENTER,
                           height=2, width=60)
+
 pealkiri1.pack()
 
-texbox6 = Entry(root, bg="#ffcc00",
+texbox6 = Entry(aken, bg="#ffcc00",
                       fg="#033e5c",
                       font="Britannic_Bold 16",
                       width=7,
                       show="")
 texbox6.pack()
 
-lisamise_nupp = Button(root,
+lisamise_nupp = Button(aken,
                        text="Lisa sõna",
                        bg="#7a8994",
                        fg="#faab09",
@@ -102,4 +110,4 @@ lisamise_nupp.pack(pady=10)
 püüde = IntVar()  
 püüde.set(3) 
 
-root.mainloop()
+aken.mainloop()
