@@ -4,15 +4,15 @@ import random
 
 def vali_sõna(): #Valib juhusliku sõna
     with open("sõnad.txt", "r") as file:
-        sõnad = file.readlines()
+        sõnad=file.readlines()
         return random.choice(sõnad).strip().lower()
 
 def kontrolli_sõna(): #Kontrollib, kas sõna on õigesti kirjutatud
-    arvatud_sõna = ""
+    arvatud_sõna=""
     for entry in sissekanded:
-        arvatud_sõna += entry.get().strip().lower()
+        arvatud_sõna+=entry.get().strip().lower()
     
-    if len(arvatud_sõna) != 5:
+    if len(arvatud_sõna)!=5:
         mb.showwarning("Viga", "Sõna peaks koosnema 5 tähest!")
         return
     
@@ -24,14 +24,14 @@ def kontrolli_sõna(): #Kontrollib, kas sõna on õigesti kirjutatud
         mb.showinfo("Tulemus", f"Palju õnne! Arvasite õigesti sõna: {arvatud_sõna.capitalize()}!")
     else:
         mb.showinfo("Tulemus", f"Kahjuks sõna {arvatud_sõna.capitalize()} ei ole ära arvatud. Proovige uuesti!")
-        püüde.set(püüde.get() - 1)  #Vähendab katsete arvu
-        if püüde.get() == 0:
+        püüde.set(püüde.get()-1)  #Vähendab katsete arvu
+        if püüde.get()==0:
             mb.showinfo("Tulemus", f"Teil on otsas katsed. Õige sõna oli: {valitud_sõna.capitalize()}!")
             aken.quit()
     
     for i, täht in enumerate(valitud_sõna): #Värvid
         if i < 5:
-            if arvatud_sõna[i] == täht:
+            if arvatud_sõna[i]==täht:
                 sissekanded[i].config(fg="green")
             elif arvatud_sõna[i] in valitud_sõna:
                 sissekanded[i].config(fg="yellow")
@@ -52,7 +52,7 @@ aken = Tk()
 aken.geometry("400x300")
 aken.title("Wordle")
 
-sõnade_nimekiri = []
+sõnade_nimekiri=[]
 with open("sõnad.txt", "r") as file:
     for rida in file:
         sõnade_nimekiri.append(rida.strip().lower())
