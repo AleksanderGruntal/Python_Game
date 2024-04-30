@@ -2,12 +2,12 @@ from tkinter import *
 from tkinter import messagebox as mb
 import random
 
-def vali_sõna():
+def vali_sõna(): #Valib juhusliku sõna
     with open("sõnad.txt", "r") as file:
         sõnad = file.readlines()
         return random.choice(sõnad).strip().lower()
 
-def kontrolli_sõna():
+def kontrolli_sõna(): #Kontrollib, kas sõna on õigesti kirjutatud
     arvatud_sõna = ""
     for entry in sissekanded:
         arvatud_sõna += entry.get().strip().lower()
@@ -20,16 +20,16 @@ def kontrolli_sõna():
         mb.showwarning("Viga", "Sõna peaks koosnema ainult tähtedest!")
         return
 
-    if arvatud_sõna in sõnade_nimekiri:
+    if arvatud_sõna in sõnade_nimekiri: #Vastab, kas sisestasite sõna õigesti
         mb.showinfo("Tulemus", f"Palju õnne! Arvasite õigesti sõna: {arvatud_sõna.capitalize()}!")
     else:
         mb.showinfo("Tulemus", f"Kahjuks sõna {arvatud_sõna.capitalize()} ei ole ära arvatud. Proovige uuesti!")
-        püüde.set(püüde.get() - 1)  # Уменьшает количество попыток
+        püüde.set(püüde.get() - 1)  #Vähendab katsete arvu
         if püüde.get() == 0:
             mb.showinfo("Tulemus", f"Teil on otsas katsed. Õige sõna oli: {valitud_sõna.capitalize()}!")
             root.quit()
     
-    for i, täht in enumerate(valitud_sõna):
+    for i, täht in enumerate(valitud_sõna): #Värvid
         if i < 5:
             if arvatud_sõna[i] == täht:
                 sissekanded[i].config(fg="green")
@@ -38,7 +38,7 @@ def kontrolli_sõna():
             else:
                 sissekanded[i].config(fg="black")
 
-def lisa_sõna():
+def lisa_sõna(): #Sõna lisamine tekstifaili
     uus_sõna = texbox6.get().strip().lower()
     if uus_sõna:
         with open("sõnad.txt", "a") as file1:
@@ -47,6 +47,7 @@ def lisa_sõna():
     else:
         mb.showwarning("Viga", "Sõnaväli on tühi!")
 
+        #Visuaalne osa
 root = Tk()
 root.geometry("400x300")
 root.title("Wordle")
