@@ -58,15 +58,15 @@ with open("sõnad.txt", "r") as file:
         sõnade_nimekiri.append(rida.strip().lower())
 valitud_sõna = vali_sõna()
 
-juhise_märgis=Label(aken,
+pealkiri2=Label(aken,
                text="Sisestage 5-täheline sõna",
-               bg="#d6daf1",
+               bg="#dddddd",
                fg="#2a5fac", #-
                cursor="star",
                font="Britannic_Bold 16",
                justify=CENTER,
                height=3,width=26)
-juhise_märgis.pack()
+pealkiri2.pack()
 
 sissekanded = []
 
