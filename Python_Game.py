@@ -24,7 +24,7 @@ def kontrolli_sõna():
         mb.showinfo("Tulemus", f"Palju õnne! Arvasite õigesti sõna: {arvatud_sõna.capitalize()}!")
     else:
         mb.showinfo("Tulemus", f"Kahjuks sõna {arvatud_sõna.capitalize()} ei ole ära arvatud. Proovige uuesti!")
-        püüde.set(püüde.get() - 1)  # Уменьшаем количество оставшихся попыток
+        püüde.set(püüde.get() - 1)  # Уменьшает количество попыток
         if püüde.get() == 0:
             mb.showinfo("Tulemus", f"Teil on otsas katsed. Õige sõna oli: {valitud_sõna.capitalize()}!")
             root.quit()
