@@ -2,7 +2,7 @@ from tkinter import *
 from tkinter import messagebox as mb
 import random
 
-def vali_suvaline_sõna():
+def vali_sõna():
     with open("sõnad.txt", "r") as file:
         sõnad = file.readlines()
         return random.choice(sõnad).strip().lower()
@@ -55,7 +55,7 @@ sõnade_nimekiri = []
 with open("sõnad.txt", "r") as file:
     for rida in file:
         sõnade_nimekiri.append(rida.strip().lower())
-valitud_sõna = vali_suvaline_sõna()
+valitud_sõna = vali_sõna()
 
 juhise_märgis = Label(root, text="Sisestage 5-täheline sõna:", font=("Helvetica", 12))
 juhise_märgis.pack()
