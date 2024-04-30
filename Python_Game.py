@@ -47,7 +47,7 @@ def lisa_sõna(): #Sõna lisamine tekstifaili
     else:
         mb.showwarning("Viga", "Sõnaväli on tühi!")
 
-        #Visuaalne osa
+        
 aken = Tk()
 aken.geometry("400x300")
 aken.title("Wordle")
@@ -75,7 +75,7 @@ for i in range(5):
     sissekanne.pack(side=LEFT, padx=5)
     sissekanded.append(sissekanne)
 
-kontrolli_nupp = Button(aken, text="Kontrollima",
+kontrolli_nupp = Button(aken, text="Valmis",
                               bg="#7a8994",
                               fg="#faab09",
                               font="Britannic_Bold 16",
